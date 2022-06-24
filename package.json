@@ -1,6 +1,6 @@
 {
   "name": "sequalize-demo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "demo of sequelize",
   "main": "index.js",
   "scripts": {

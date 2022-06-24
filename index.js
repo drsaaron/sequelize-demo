@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const PersonFactory = require('./models/Person');
+const PersonTypValFactory = require('./models/PersonTypVal');
 
 const dbuser = process.env.DB_USER
 const dbpass = process.env.DB_PASS;
@@ -15,6 +16,7 @@ const sequelize = new Sequelize(
 );
 
 const Person = PersonFactory(sequelize);
+const PersonTypVal = PersonTypValFactory(sequelize);
 
 async function logAll() {
     // query all
@@ -26,6 +28,11 @@ async function logAll() {
 async function logKlingons() {
     const klingons = await Person.findAll({ where: { personTypCde: 4 }});
     console.log("klingons:", JSON.stringify(klingons, null, 2));
+}
+
+async function logTypeCodes() {
+    const typeCodes = await PersonTypVal.findAll();
+    console.log("type codes = " + JSON.stringify(typeCodes, null, 2));
 }
 
 async function main() {
@@ -49,6 +56,9 @@ async function main() {
 
     // just query klingons
     await logKlingons();
+
+    // dump the type codes
+    await logTypeCodes();
 };
 
 main();

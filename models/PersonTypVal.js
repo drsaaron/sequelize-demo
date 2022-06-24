@@ -26,7 +26,9 @@ module.exports = sequelize => {
   const options = {
     tableName: "PersonTypVal",
     comment: "",
-    indexes: []
+      indexes: [],
+      freezeTableName: true,
+      timestamps: false
   };
   const PersonTypValModel = sequelize.define("PersonTypVal_model", attributes, options);
   return PersonTypValModel;
