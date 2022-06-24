@@ -1,17 +1,19 @@
 {
   "name": "sequalize-demo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "demo of sequelize",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "DB_USER=aar1069 DB_PASS=$(pass database/local-mysql/$DB_USER) node index.js"
+      "start": "DB_USER=aar1069 DB_PASS=$(pass database/local-mysql/$DB_USER) node index.js",
+      "generate": "DB_USER=aar1069 DB_PASS=$(pass database/local-mysql/$DB_USER) sequelize-automate -t js -h localhost -d PersonInformation -u aar1069 -p \"$(pass database/local-mysql/aar1069)\" -e mysql -o models"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.0",
+    "sequelize-automate": "^1.2.2",
     "sqlite3": "^5.0.8"
   }
 }

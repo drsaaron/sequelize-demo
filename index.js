@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const PersonFactory = require('./models/Person');
 
 const dbuser = process.env.DB_USER
 const dbpass = process.env.DB_PASS;
@@ -13,31 +14,7 @@ const sequelize = new Sequelize(
     }
 );
 
-const Person = sequelize.define('Person', {
-    // model attributes
-    personId: {
-	type: DataTypes.INTEGER,
-	allowNull: true,
-	primaryKey: true,
-	autoincrement: true
-    },
-    
-    name: {
-	type: DataTypes.STRING,
-	allowNull: false
-    },
-
-    personTypCde: {
-	type: DataTypes.INTEGER,
-	allowNull: false
-    },
-}, {
-    sequelize,
-    modelName: 'Person',
-    tableName: 'Person',
-    freezeTableName: true,
-    timestamps: false
-});
+const Person = PersonFactory(sequelize);
 
 async function logAll() {
     // query all
