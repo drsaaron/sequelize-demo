@@ -38,12 +38,14 @@ const Person = sequelize.define('Person', {
     timestamps: false
 });
 
-// the defined model is the class itself
-console.log(Person === sequelize.models.Person); // true
+async function main() {
+    // the defined model is the class itself
+    console.log(Person === sequelize.models.Person); // true
+    
+    // query all
+    const people = await Person.findAll();
+    console.log(people.every(user => user instanceof Person)); // true
+    console.log("All people:", JSON.stringify(people, null, 2));
+};
 
-// query all
-//const people = await Person.findAll();
-Person.findAll()
-    .then(people => console.log('All people: ', JSON.stringify(people, null, 2)));
-//console.log(people.every(user => user instanceof Person)); // true
-//console.log("All people:", JSON.stringify(people, null, 2));
+main();
