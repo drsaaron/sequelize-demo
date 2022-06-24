@@ -1,0 +1,17 @@
+{
+  "name": "sequalize-demo",
+  "version": "1.0.0",
+  "description": "demo of sequelize",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "DB_USER=aar1069 DB_PASS=$(pass database/local-mysql/$DB_USER) node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.0",
+    "sqlite3": "^5.0.8"
+  }
+}
